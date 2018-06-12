@@ -14,7 +14,7 @@ For a new Drupal 8 site:
 
 7. Run "docker exec -ti project-name bash"
 
-8. Run "composer create-project drupal/drupal web" (this installs Drupal Core within the "web" folder it creates, and runs "composer install"
+8. Run "composer update" (this installs Drupal Core within the "web" folder it creates, and runs "composer install")
 
 9. Add "127.0.01 project-name" to /etc/hosts
 
