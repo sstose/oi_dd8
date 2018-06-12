@@ -6,8 +6,8 @@ services:
     restart: unless-stopped
     command: -c /dev/null --web --docker --logLevel=DEBUG
     networks:
-      - project1
-      - project2
+      - site1
+#      - site2
     ports:
       - '80:80'
       - '8080:8080'
@@ -15,9 +15,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
 networks:
-  project1:
+  site1:
     external: 
-      name: project1-dir_default
-  project2:
-    external:
-      name: project2-dir_default
+      name: site1_default
+#  site2:
+#    external:
+#      name: site2_default
