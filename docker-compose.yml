@@ -37,7 +37,7 @@ services:
 #      - ./:/var/www/html
 ## For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
       - ./:/var/www/html:cached # User-guided caching
-      - docker-sync:/var/www/html # Docker-sync
+      - ${PROJECT_NAME}-sync:/var/www/html # Docker-sync
 ## For Xdebug profiler files
 #      - files:/mnt/files
 
@@ -56,9 +56,9 @@ services:
 #      - ./:/var/www/html
 # For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
       - ./:/var/www/html:cached # User-guided caching
-      - docker-sync:/var/www/html # Docker-sync
+      - ${PROJECT_NAME}-sync:/var/www/html # Docker-sync
     labels:
-      - 'traefik.backend=nginx'
+      - 'traefik.backend=${PROJECT_BASE_URL}_nginx_1'
       - 'traefik.port=80'
       - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
 
@@ -247,15 +247,15 @@ services:
       - 'traefik.port=9000'
       - 'traefik.frontend.rule=Host:portainer.${PROJECT_BASE_URL}'
 
-  traefik:
-    image: traefik
-    container_name: "${PROJECT_NAME}_traefik"
-    command: -c /dev/null --web --docker --logLevel=INFO
-    ports:
-      - '${PORT_NUMBER}:80'
-#      - '8080:8080' # Dashboard
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+#   traefik:
+#     image: traefik
+#     container_name: "${PROJECT_NAME}_traefik"
+#     command: -c /dev/null --web --docker --logLevel=INFO
+#     ports:
+#       - '${PORT_NUMBER}:80'
+# #      - '8080:8080' # Dashboard
+#     volumes:
+#       - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
 ## Docker-sync for macOS users
