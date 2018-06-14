@@ -1,4 +1,8 @@
-This is a Drupal 8 starter project. It combines the best of both:
+## Drupal 8 starter project 
+
+This project starts a new Drupal 8 project using Docker for Mac. After installation, instructions are also included on how to move an existing Drupal 8 site onto this installation. 
+
+It combines the best of both:
 
 https://github.com/wodby/docker4drupal
 
@@ -10,7 +14,7 @@ https://github.com/drupal-composer/drupal-project
 
 2. From within this directory, run `git clone https://github.com/sstose/oi_dd8.git project-name`
 
-3. Move `traefik.yml` file up one directory (mv `traefik.yml` ../.) (unless one is already there, networking an existing project)
+3. Move `traefik.yml` file up one directory (`mv traefik.yml ../.`) (unless one is already there, networking an existing project)
 
 4. Edit environmental variables in `.env.modify` and rename to `.env`
 
@@ -28,7 +32,7 @@ https://github.com/drupal-composer/drupal-project
 
 11. If more than one project exists, before editing #10 above run `docker-compose -f traefik.yml down` (if already running); then, edit #10 above, and run `docker-compose -f traefik.yml up -d`
 
-12. Visit site URL (`http://project-name`), configure site to install Drupal (make sure database details on install match .env settings file)
+12. Visit site URL (`http://project-name`), configure site to install Drupal (make sure database details on install match `.env` settings file)
 
 
 
