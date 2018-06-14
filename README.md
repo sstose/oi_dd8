@@ -4,7 +4,7 @@ https://github.com/wodby/docker4drupal
 
 https://github.com/drupal-composer/drupal-project
 
-###For a new Drupal 8 site (on a Mac with Docker Community Edition installed):
+### For a new Drupal 8 site (on a Mac with Docker Community Edition installed):
 
 1. Create empty directory (e.g., docker-sites or docker), `cd` into this directory (or, if one already exists with another Docker project, `cd` into this, and see #11 below for `traefik.yml` configuration)
 
@@ -34,7 +34,7 @@ https://github.com/drupal-composer/drupal-project
 
 
 
-##Rough guide to deploying an existing Drupal 8 site on a new Docker container
+### Rough guide to deploying an existing Drupal 8 site on a new Docker container
 
 1. Follow all the steps above, to the letter
 
