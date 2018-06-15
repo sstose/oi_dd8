@@ -38,9 +38,9 @@ https://github.com/drupal-composer/drupal-project
 
 
 
-### Rough guide to deploying an existing Drupal 8 site on a new Docker container
+### Rough guide to migrating an existing Drupal 8 site onto a new Docker container
 
-1. Follow all the steps above, to the letter
+1. Follow all the steps above, to the letter (this ensures you have a Drupal 8 starter site up and running, and uses this as the basis for the migration -- not the best way, but one way)
 
 2. Integrate the `composer.json` from your project with the one already present in the directory; this can be tricky -- most importantly, include the required modules and their versions in the `require` and `require-dev` sections
 
@@ -54,4 +54,11 @@ https://github.com/drupal-composer/drupal-project
 
 5. Copy over any other important files relevant to the site
 
-6.
+6. From within the container (`docker-compose exec php sh`), run `composer update --with-dependencies` and fix any errors
+
+7. Drop the existing Drupal DB (`drush sql-drop`) and re-import the database from the site you are migrating (`docker sql-cli < name-of-db.sql`)
+
+8. Exit container, run `docker-sync stop`, `docker-sync clean` and stop the containers `docker-compose stop`; then restart the sync (`docker-sync start` -- the re-syncs all of the new files rsync'd from steps above) and restart the containers (`docker-compose up -d`)
+
+
+
